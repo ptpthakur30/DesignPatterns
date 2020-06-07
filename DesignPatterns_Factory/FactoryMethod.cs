@@ -1,24 +1,90 @@
-using System;
+//using System;
 
-namespace DesignPatterns_Factory
-{
-    internal class Point
-    {
-        private readonly int a;
-        private readonly int b;
+//namespace DesignPatterns_Factory
+//{
+//    public class Point
+//    {
+//        private double x, y;
 
-    }
+//        protected Point(double x, double y)
+//        {
+//            this.x = x;
+//            this.y = y;
+//        }
 
-    internal class FactoryMethod
-    {
-        private static void Main(string[] args)
-        {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+//        public Point(double a,
+//            double b, // names do not communicate intent
+//            CoordinateSystem cs = CoordinateSystem.Cartesian)
+//        {
+//            switch (cs)
+//            {
+//                case CoordinateSystem.Polar:
+//                    x = a * Math.Cos(b);
+//                    y = a * Math.Sin(b);
+//                    break;
+//                default:
+//                    x = a;
+//                    y = b;
+//                    break;
+//            }
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
-        }
-    }
-}
+//            // steps to add a new system
+//            // 1. augment CoordinateSystem
+//            // 2. change ctor
+//        }
+
+//        // factory property
+
+//        public static Point Origin => new Point(0, 0);
+
+//        // singleton field
+//        public static Point Origin2 = new Point(0, 0);
+
+//        // factory method
+
+//        public static Point NewCartesianPoint(double x, double y)
+//        {
+//            return new Point(x, y);
+//        }
+
+//        public static Point NewPolarPoint(double rho, double theta)
+//        {
+//            //...
+//            return null;
+//        }
+
+//        public enum CoordinateSystem
+//        {
+//            Cartesian,
+//            Polar
+//        }
+
+//        // make it lazy
+//        public static class Factory
+//        {
+//            public static Point NewCartesianPoint(double x, double y)
+//            {
+//                return new Point(x, y);
+//            }
+//        }
+//    }
+
+//    internal class PointFactory
+//    {
+//        public static Point NewCartesianPoint(float x, float y)
+//        {
+//            return new Point(x, y); // needs to be public
+//        }
+//    }
+
+//    internal class Demo
+//    {
+//        private static void Main(string[] args)
+//        {
+//            var p1 = new Point(2, 3, Point.CoordinateSystem.Cartesian);
+//            var origin = Point.Origin;
+
+//            var p2 = Point.Factory.NewCartesianPoint(1, 2);
+//        }
+//    }
+//}
